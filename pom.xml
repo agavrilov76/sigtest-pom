@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.java.sigtest</groupId>
+    <artifactId>sigtestdev</artifactId>
+    <version>3.0-b12-v20140219</version>
+    <packaging>pom</packaging>
+
+    <name>The Signature Test Kit</name>
+    <description>
+        The SigTest open source project is a collection of tools based on Oracle's commercial SigTest tools product.
+        The SigTest tools can be used to compare APIs and to measure the test coverage of an API.
+    </description>
+    <url>https://sigtest.java.net</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License, version 2, with the Classpath Exception</name>
+            <url>http://openjdk.java.net/legal/gplv2+ce.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:svn:https://svn.java.net/svn/sigtest~svn</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/sigtest~svn</developerConnection>
+        <url>scm:svn:https://java.net/projects/sigtest/sources/svn/show</url>
+    </scm>
+
+    <issueManagement>
+        <url>https://java.net/jira/browse/SIGTEST</url>
+        <system>JIRA</system>
+    </issueManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <name>https://java.net/projects/sigtest/members</name>
+            <email>issues@sigtest.java.net</email>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>sigtest-3_0-FCS-b12-sigtestdev.jar</file>
+                                    <type>jar</type>
+                                </artifact>
+                                <artifact>
+                                    <file>sigtest-3_0-FCS-b12-javadoc.jar</file>
+                                    <type>jar</type>
+                                    <classifier>javadoc</classifier>
+                                </artifact>
+                                <artifact>
+                                    <file>sigtest-3_0-FCS-b12-sources.jar</file>
+                                    <type>jar</type>
+                                    <classifier>sources</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
